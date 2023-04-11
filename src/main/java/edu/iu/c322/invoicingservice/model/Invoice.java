@@ -1,29 +1,20 @@
 package edu.iu.c322.invoicingservice.model;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
 public class Invoice {
-
-    private int orderId;
-    private String orderPlaced;
+    private LocalDate orderPlaced;
     private double total;
     private List<InvoiceItem> invoiceItem;
     private Payment payment;
 
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getOrderPlaced() {
+    public LocalDate getOrderPlaced() {
         return orderPlaced;
     }
 
-    public void setOrderPlaced(String orderPlaced) {
+    public void setOrderPlaced(LocalDate orderPlaced) {
         this.orderPlaced = orderPlaced;
     }
 
@@ -56,11 +47,11 @@ public class Invoice {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Invoice invoice = (Invoice) o;
-        return orderId == invoice.orderId && Double.compare(invoice.total, total) == 0 && orderPlaced.equals(invoice.orderPlaced) && invoiceItem.equals(invoice.invoiceItem) && payment.equals(invoice.payment);
+        return Double.compare(invoice.total, total) == 0 && orderPlaced.equals(invoice.orderPlaced) && invoiceItem.equals(invoice.invoiceItem) && payment.equals(invoice.payment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, orderPlaced, total, invoiceItem, payment);
+        return Objects.hash(orderPlaced, total, invoiceItem, payment);
     }
 }

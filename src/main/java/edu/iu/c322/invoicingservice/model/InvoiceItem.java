@@ -1,5 +1,6 @@
 package edu.iu.c322.invoicingservice.model;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,14 +8,15 @@ public class InvoiceItem {
 
     private String status;
     private List<Item> items;
-    private String on;
+    private LocalDate on;
     private Address address;
 
-    public InvoiceItem(String status, List<Item> items, String on, Address address) {
-        this.status = status;
-        this.items = items;
+    public LocalDate getOn() {
+        return on;
+    }
+
+    public void setOn(LocalDate on) {
         this.on = on;
-        this.address = address;
     }
 
     public String getStatus() {
@@ -33,13 +35,6 @@ public class InvoiceItem {
         this.items = items;
     }
 
-    public String getOn() {
-        return on;
-    }
-
-    public void setOn(String on) {
-        this.on = on;
-    }
 
     public Address getAddress() {
         return address;
