@@ -13,6 +13,5 @@ public record Order (
         Address shippingAddress,
         List<Item> items,
         Payment payment,
-        String status,
         LocalDate orderPlaced
 ) {}
